@@ -1,8 +1,8 @@
 {
   "variables": {
     "output_directory": "output",
-    "iso_url": "http://mirror.pnl.gov/releases/trusty/ubuntu-14.04.3-desktop-amd64.iso",
-    "iso_checksum": "756a42474bc437f614caa09dbbc0808038d1a586d172894c113bb1c22b75d580",
+    "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04.3-server-amd64.iso",
+    "iso_checksum": "a3b345908a826e262f4ea1afeb357fd09ec0558cf34e6c9112cead4bb55ccdfb",
     "iso_checksum_type": "sha256"
   },
   "builders": [ {
@@ -13,16 +13,16 @@
     "iso_url": "{{user `iso_url`}}",
     "iso_checksum": "{{user `iso_checksum`}}",
     "iso_checksum_type": "{{user `iso_checksum_type`}}",
+    "http_directory": "preseed",
     "boot_command": [
       "<esc><esc><enter><wait>",
-      "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
-      "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
-      "hostname={{ .Name }} <wait>",
-      "fb=false debconf/frontend=noninteractive <wait>",
-      "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false <wait>",
-      "initrd=/install/initrd.gz -- <enter><wait>"
+      "/install/vmlinuz noapic url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+      "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+      "hostname={{ .Name }} ",
+      "fb=false debconf/frontend=noninteractive ",
+      "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA ",
+      "initrd=/install/initrd.gz -- <enter>"
     ],
-    "http_directory": "preseed",
     "guest_additions_path": "VBoxGuestAdditions.iso",
     "guest_additions_mode": "upload",
     "headless": false,
@@ -47,6 +47,11 @@
     "execute_command" : "echo 'vagrant' | sudo -E '{{ .Path }}'"
   }],
   "post-processors": [
+  {
+    "type": "vagrant",
+    "compression_level": 1,
+    "vagrantfile_template": "Vagrantfile.template"
+  },
   {
     "type": "atlas",
     "artifact": "warnergodfrey/trusty64-desktop",
