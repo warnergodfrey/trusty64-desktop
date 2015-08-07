@@ -6,5 +6,5 @@ apt-get install -y build-essential
 apt-get install -y dkms
 
 mount -o loop ~vagrant/VBoxGuestAdditions.iso /media/cdrom
-/media/cdrom/VBoxLinuxAdditions.run
+/media/cdrom/VBoxLinuxAdditions.run --nox11 || true
 umount /media/cdrom
