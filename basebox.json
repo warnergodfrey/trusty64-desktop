@@ -34,16 +34,26 @@
   }],
   "provisioners": [ {
     "type": "shell",
-    "script": "scripts/vagrant_sudo.sh",
+    "script": "vagrant_sudo.sh",
     "execute_command": "echo 'vagrant' | sudo -E -S '{{ .Path }}'"
   },
   {
     "type": "shell",
-    "script": "scripts/vagrant_keys.sh"
+    "script": "vagrant_keys.sh"
   },
   {
     "type": "shell",
-    "script": "scripts/virtualbox_guest_additions.sh",
+    "script": "virtualbox_guest_additions.sh",
     "execute_command" : "echo 'vagrant' | sudo -E '{{ .Path }}'"
+  }],
+  "post-processors": [
+  {
+    "type": "atlas",
+    "artifact": "warnergodfrey/trusty64-desktop",
+    "artifact_type": "vagrant.box",
+    "metadata": {
+      "created_at": "{{timestamp}}",
+      "provider": "virtualbox"
+    }
   }]
 }
