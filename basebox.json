@@ -47,7 +47,7 @@
     "execute_command" : "echo 'vagrant' | sudo -E '{{ .Path }}'"
   }],
   "post-processors": [
-  {
+  [{
     "type": "vagrant",
     "compression_level": 1,
     "vagrantfile_template": "Vagrantfile.template"
@@ -61,4 +61,5 @@
       "provider": "virtualbox"
     }
   }]
+  ]
 }
