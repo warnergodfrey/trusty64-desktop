@@ -43,12 +43,12 @@
   },
   {
     "type": "shell",
-    "script": "virtualbox_guest_additions.sh",
+    "script": "provision.sh",
     "execute_command" : "echo 'vagrant' | sudo -E '{{ .Path }}'"
   },
   {
     "type": "shell",
-    "script": "provision.sh",
+    "script": "virtualbox_guest_additions.sh",
     "execute_command" : "echo 'vagrant' | sudo -E '{{ .Path }}'"
   }],
   "post-processors": [
