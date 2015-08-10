@@ -13,6 +13,7 @@ apt-get install -y git
 apt-get install -y vim-gnome
 apt-get install -y ack-grep
 apt-get install -y python
+apt-get install -y python-pip
 apt-get install -y rake
 apt-get install -y google-chrome-stable
 
