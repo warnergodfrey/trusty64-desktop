@@ -6,6 +6,7 @@ sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt
 apt-get update
 
 apt-get install -y ubuntu-desktop
+apt-get install -y unity-tweak-tool
 apt-get install -y zip
 apt-get install -y docker
 apt-get install -y git
