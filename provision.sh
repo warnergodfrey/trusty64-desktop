@@ -5,7 +5,7 @@ sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt
 
 apt-get update
 
-apt-get install -y unity xterm gdm menu gksu synaptic acpi-support gcc gnome-terminal make onboard ttf-ubuntu-font-family overlay-scrollbar unity-webapps-service libcanberra-gtk-module
+apt-get install -y unity xterm gdm menu gksu synaptic acpi-support gcc gnome-terminal make onboard ttf-ubuntu-font-family overlay-scrollbar unity-webapps-common libcanberra-gtk-module
 apt-get install -y ubuntu-desktop --no-install-recommends
 apt-get install -y unity-tweak-tool
 apt-get install -y zip
